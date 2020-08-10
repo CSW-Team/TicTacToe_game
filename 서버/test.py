@@ -120,7 +120,8 @@ def inputandcheck(N,a,go):
 
 N,go = [[1,2,3],[4,5,6],[7,8,9]],0
 x,o = [],[]
-a = random.randint(1,2)
+k = connectionSock.recv(1024)
+a = int(data.decode('utf-8'))
 DISPLAYSURF.fill(WHITE)
 DISPLAYSURF.blit(background,(0,0))
 if a == 1:
@@ -168,4 +169,5 @@ while True:
             pygame.quit()
             sys.exit()
     pygame.display.update()
+
 quit()
