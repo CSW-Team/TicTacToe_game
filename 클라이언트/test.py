@@ -4,7 +4,7 @@ from pygame.locals import *
 from socket import *
 
 clientSock = socket(AF_INET, SOCK_STREAM)
-clientSock.connect(('118.37.196.194', 8080))
+clientSock.connect(('Your_Friend_IP', 8080))
 print('연결 확인 됐습니다.')
 pygame.init()
 FPS = 60
