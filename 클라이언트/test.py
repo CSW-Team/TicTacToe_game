@@ -4,7 +4,7 @@ from pygame.locals import *
 from socket import *
 
 clientSock = socket(AF_INET, SOCK_STREAM)
-clientSock.connect(('Your_Friend_IP', 8080))
+clientSock.connect(('118.37.196.194', 8080))
 print('연결 확인 됐습니다.')
 pygame.init()
 FPS = 60
@@ -55,18 +55,18 @@ def turncheck(a,go):
     typecheck = ""
     if a == 1:
         if go % 2 ==1:
-            print("O player turn")
-            typecheck = "X"
-        else:
             print("X player turn")
             typecheck = "O"
+        else:
+            print("O player turn")
+            typecheck = "X"
     else:
         if go%2 == 1:
-            print("X player turn")
-            typecheck = "O"
-        else:
             print("O player turn")
             typecheck = "X"
+        else:
+            print("X player turn")
+            typecheck = "O"
     return typecheck
             
 def Ninput(a,b,go,x,o,location):
@@ -119,7 +119,7 @@ def inputandcheck(N,a,go):
 N,go = [[1,2,3],[4,5,6],[7,8,9]],1
 x,o = [],[]
 a = random.randint(1,2)
-
+clientSock.send(str(a).encode('utf-8'))
 DISPLAYSURF.fill(WHITE)
 DISPLAYSURF.blit(background,(0,0))
 if a == 1:
@@ -143,9 +143,9 @@ while True:
         continue
     go += 1
     if a== 1:
-        o,x,finalcheck,final = Ninput("X","O",go,x,o,location)
-    elif a == 2:
         o,x,finalcheck,final = Ninput("O","X",go,x,o,location)
+    elif a == 2:
+        o,x,finalcheck,final = Ninput("X","O",go,x,o,location)
     for i in range(len(o)):
         DISPLAYSURF.blit(oimage,(90+((o[i][1]+1) * 80),100+((o[i][0]+1) * 70)))
     for i in range(len(x)):

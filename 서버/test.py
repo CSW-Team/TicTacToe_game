@@ -120,10 +120,12 @@ def inputandcheck(N,a,go):
 
 N,go = [[1,2,3],[4,5,6],[7,8,9]],0
 x,o = [],[]
-k = connectionSock.recv(1024)
-a = int(data.decode('utf-8'))
 DISPLAYSURF.fill(WHITE)
 DISPLAYSURF.blit(background,(0,0))
+data = connectionSock.recv(1024)
+a = int(data.decode('utf-8'))
+if a == 1:a =2
+elif a == 2:a=1
 if a == 1:
     text = sf1.render("O player turn",True,(0,0,0))
 elif a == 2:
