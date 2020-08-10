@@ -171,5 +171,5 @@ while True:
             pygame.quit()
             sys.exit()
     pygame.display.update()
-serverSocket.close()
+connectionSock.close()
 quit()

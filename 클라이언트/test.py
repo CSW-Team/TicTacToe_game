@@ -167,5 +167,4 @@ while True:
             pygame.quit()
             sys.exit()
     pygame.display.update()
-clientSocekt.close()
 quit()
